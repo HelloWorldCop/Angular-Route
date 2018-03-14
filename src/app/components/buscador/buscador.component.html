@@ -1,0 +1,21 @@
+
+<h1>Buscador <small>{{termino}}</small></h1>
+<hr>
+
+<div class="alert alert-danger " *ngIf="heroes.length == 0" role="alert">
+  <h4 class="alert-heading">Whooo!</h4>
+  <p>Lamentamos, pero no hemos conseguido resultados con la busquedda: {{termino}}</p>
+  <hr>
+  <p class="mb-0">Por favor intente nuevamente ó pruebe con otra palabra</p>
+</div>
+<div class="card-columns">
+  <div class="card" *ngFor="let heroe of heroes; let i = index;">
+    <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-body">
+      <h4 class="card-title">{{heroe.nombre}}</h4>
+      <p class="card-text">{{heroe.bio}}</p>
+      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+      <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block" name="button">ver mas</button>
+    </div>
+  </div>
+</div>
